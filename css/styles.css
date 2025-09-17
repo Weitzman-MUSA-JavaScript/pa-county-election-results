@@ -1,11 +1,29 @@
+html {
+  font-family: sans-serif;
+}
+
 body {
   padding: 0;
   margin: 0;
 }
 
+.visually-hidden {
+  display: none;
+}
+
+header {
+  padding: 1rem;
+  background-color: #eee;
+  border-bottom: 1px solid black;
+}
+
 #map {
-  height: 50vh;
+  height: 40vh;
   background-color: purple;
+}
+
+#info {
+  padding: 1rem;
 }
 
 .legend {
@@ -18,4 +36,34 @@ body {
   width: 0.8rem;
   height: 0.8rem;
   border-radius: 0.4rem;
+}
+
+@media screen and (width > 480px) {
+  body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  main {
+    height: 100%;
+    position: relative;
+  }
+
+  #map {
+    height: 100%;
+  }
+
+  #info {
+    position: absolute;
+    background-color: white;
+    top: 2rem;
+    right: 2rem;
+    bottom: 2rem;
+    overflow: auto;
+    z-index: 10000;
+    border: 1px solid silver;
+    border-radius: 4px;
+    box-shadow: 0 0 5px 5px rgb(0 0 0 / 20%)
+  }
 }

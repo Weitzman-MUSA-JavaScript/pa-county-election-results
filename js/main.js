@@ -30,7 +30,11 @@ const dataLayer = L.geoJSON(data, {
 });
 
 dataLayer.addTo(map);
-map.fitBounds(dataLayer.getBounds(), {padding: [32, 32]});
+const infoDiv = document.getElementById('info');
+map.fitBounds(dataLayer.getBounds(), {
+  paddingTopLeft: [32, 32],
+  paddingBottomRight: window.matchMedia('(width > 480px)').matches ? [64 + infoDiv.clientWidth, 32] : [32, 32],
+});
 
 const legend = L.control({position: 'bottomright'});
 
@@ -57,7 +61,7 @@ dataLayer.addEventListener('click', (evt) => {
   const infoDiv = document.getElementById('info');
 
   const instructions = infoDiv.querySelector('.instructions');
-  instructions.classList.remove('visually-hidden');
+  instructions.classList.add('visually-hidden');
   instructions.setAttribute('aria-hidden', 'false');
 
   const resultsDiv = infoDiv.querySelector('#results');
