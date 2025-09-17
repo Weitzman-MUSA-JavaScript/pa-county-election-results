@@ -28,7 +28,7 @@ const dataLayer = L.geoJSON(data, {
 });
 
 dataLayer.addTo(map);
-map.fitBounds(dataLayer.getBounds());
+map.fitBounds(dataLayer.getBounds(), {padding: [32, 32]});
 
 const legend = L.control({position: 'bottomright'});
 
