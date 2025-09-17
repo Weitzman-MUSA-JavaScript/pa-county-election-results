@@ -12,7 +12,7 @@ function getPartyColor(party) {
   return party === 'REPUBLICAN' ? 'red' : 'blue'
 }
 
-const resp = await fetch('../data/pa_pres_results.geojson');
+const resp = await fetch('data/pa_pres_results.geojson');
 const data = await resp.json();
 const dataLayer = L.geoJSON(data, {
   style: feature => {
