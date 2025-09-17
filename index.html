@@ -11,6 +11,15 @@
   </head>
 
   <body>
-     <div id="map"></div>
+    <main>
+      <div id="map" aria-label="Map of Pennsylvania counties, showing which party won each county in the 2020 presidential election"></div>
+      <div id="info" aria-live="assertive" aria-atomic="true">
+
+        <p class="instructions">Click on a county to see the results.</p>
+
+        <div id="results"></div>
+        <svg id="chart"></svg>
+      </div>
+    </main>
   </body>
 </html>
