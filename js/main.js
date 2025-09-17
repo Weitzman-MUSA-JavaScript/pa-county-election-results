@@ -1,4 +1,4 @@
-import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7/+esm';
 
 const map = L.map('map', {zoomSnap: 0}).setView([39.95, -75.16], 12);
 
@@ -81,13 +81,13 @@ dataLayer.addEventListener('click', (evt) => {
   const height = 200;
   const chartData = [{
     label: 'Democrat',
-    value: props.party === 'DEMOCRAT' ? props.candidatevotes / props.totalvotes 
-                                      : 1 - props.candidatevotes / props.totalvotes,
+    value: props.party === 'DEMOCRAT' ? props.candidatevotes / props.totalvotes :
+      1 - props.candidatevotes / props.totalvotes,
     color: getPartyColor('DEMOCRAT'),
   }, {
     label: 'Republican',
-    value: props.party === 'REPUBLICAN' ? props.candidatevotes / props.totalvotes
-                                        : 1 - props.candidatevotes / props.totalvotes,
+    value: props.party === 'REPUBLICAN' ? props.candidatevotes / props.totalvotes :
+      1 - props.candidatevotes / props.totalvotes,
     color: getPartyColor('REPUBLICAN'),
   }];
 
@@ -97,7 +97,7 @@ dataLayer.addEventListener('click', (evt) => {
 
   // Draw or update a pie chart
   const pie = d3.pie()
-    .value(d => d.value)
+    .value((d) => d.value)
     .sort((a, b) => d3.ascending(a.label, b.label));
   const arcs = pie(chartData);
 
@@ -110,6 +110,5 @@ dataLayer.addEventListener('click', (evt) => {
       .padAngle(0.02)
       .padRadius(50))
     .attr('transform', `translate(${width / 2}, ${height / 2})`)
-    .attr('fill', d => d.data.color);
-
+    .attr('fill', (d) => d.data.color);
 });
