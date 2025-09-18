@@ -32,6 +32,7 @@
       "L": "readonly"
     },
     "rules": {
+      "indent": ["error", 2, {"MemberExpression": 1}],
       "object-curly-spacing": "off",
       "max-len": "off",
       "require-jsdoc": "off"
